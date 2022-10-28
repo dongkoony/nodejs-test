@@ -1,0 +1,22 @@
+version: "3"
+services:
+  node-app:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      - PORT=8000
+    depends_on:
+      - mongo
+
+  mongo:  # docker exec -it <name> mongosh
+    image: mongo
+    restart: always
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=soldesk
+      - MONGO_INITDB_ROOT_PASSWORD=password1
+    volumes:
+      - mongo-db:/data/db
+
+volumes:
+  mongo-db:
