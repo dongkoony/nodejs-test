@@ -18,7 +18,7 @@ exports.getAllPosts = async (req, res, next) => {
         });
     }
 };
-// localhost:8000/posts/:id
+// localhost:8000/posts/:id //
 
 // 개별 게시물 검색 //
 exports.getOnePost = async (req, res, next) => {
@@ -37,7 +37,7 @@ exports.getOnePost = async (req, res, next) => {
             status: "fail",
         });
     }
-}
+};
 
 // 새로운 게시물 //
 exports.createPost = async (req, res, next) => {
@@ -56,9 +56,9 @@ exports.createPost = async (req, res, next) => {
             status: "fail",
         });
     }
-}
+};
 
-// 업데이트 //
+// 업데이트 //              // Arrow Function //
 exports.updatePost = async (req, res, next) => {
     try {
         const post = await Post.findByIdAndUpdate(req.params.id, req.body, {
