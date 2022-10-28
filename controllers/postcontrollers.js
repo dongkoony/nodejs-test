@@ -51,7 +51,8 @@ exports.createPost = async (req, res, next) => {
                 post,
             },
         });
-    }   catch (e){
+    }   catch (e) {
+        console.log(e);
         res.status(400).json({
             status: "fail",
         });

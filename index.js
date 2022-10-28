@@ -8,10 +8,12 @@ const {
     MONGO_PORT 
 } = require("./config/config");
 
-const postRouter = require("./routes/postRoutes")
+const postRouter = require("./routes/postRoutes");
+const userRouter = require("./routes/userRoutes")
 
 const app = express(); // express app 생성
 
+                                //                  환경 변수 적용               //
 const mongoURL = `mongodb://${MONGO_USER}:${MONGO_PASSWORD}@${MONGO_IP}:${MONGO_PORT}/?
 authSource=admin`;
 
@@ -36,7 +38,8 @@ app.get("/", (req, res) => {    // Arrow Function 가독성
 });
 
 // localhost:8000/api/v1/post //
-app.use("/api/v1/posts", postRouter)
+app.use("/api/v1/posts", postRouter);
+app.use("/api/v1/users", userRouter);
 const port = process.env.PORT || 8000; // Localhost 8000 포트 사용
 
 app.listen(port, () => console.log(`listening on port ${port}`)); //env 포트 환경 변수

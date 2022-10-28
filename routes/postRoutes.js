@@ -7,7 +7,8 @@ const router = express.Router()
 
 
 /// localhost:8000/ ///
-router.router("/")
+router
+.route("/")
 .get(postcontroller.getAllPosts)
 .post(postcontroller.createPost);
 
